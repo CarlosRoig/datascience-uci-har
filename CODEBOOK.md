@@ -1,3 +1,4 @@
+```
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
@@ -9,6 +10,7 @@ Via Opera Pia 11A, I-16145, Genoa, Italy.
 activityrecognition@smartlab.ws
 www.smartlab.ws
 ==================================================================
+```
 
 ## Data collection 
 
@@ -18,9 +20,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 The data were aggregated to give the means of the means and standard deviations of each variable for each subject and activity.
 
-## Codebook (table format) 
-
-
+## Codebook (table format)
 
 |variable                    |description                                                                                                                                           |range                                                                                |
 |:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|
@@ -92,7 +92,3 @@ The data were aggregated to give the means of the means and standard deviations 
 |fBodyBodyGyroMag-std()      |Mean ofstandard deviations of the magnitude of giroscope body data in frequency domain for each given subject and activity type.                      |float in [-1,1]                                                                      |
 |fBodyBodyGyroJerkMag-mean() |Mean of means of the magnitude of jerk signal of giroscope body data in frequency domain for each given subject and activity type.                    |float in [-1,1]                                                                      |
 |fBodyBodyGyroJerkMag-std()  |Mean ofstandard deviations of the magnitude of jerk signal of giroscope body data in frequency domain for each given subject and activity type.       |float in [-1,1]                                                                      |
-
-
-## Codebook (plain format) 
-
