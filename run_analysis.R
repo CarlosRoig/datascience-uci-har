@@ -117,7 +117,7 @@ features.description <- function (feature.name) {
     # Std or mean?
     description <- c()
     if ("-std()" %in% feature.keywords) {
-        description <- cbind(description, "Mean ofstandard deviations of")
+        description <- cbind(description, "Mean of standard deviations of")
     } else if ("-mean()" %in% feature.keywords) {
         description <- cbind(description, "Mean of means of")
     }
@@ -164,10 +164,7 @@ features.description <- function (feature.name) {
     } else if ("Z" %in% feature.keywords) {
         description <- cbind(description, "in the Z direction")
     }
-      
-    # Ending sentence
-    description <- cbind(description, "for each given subject and activity type")
-    
+          
     # Concatenate the description
     description.string <- paste(description, collapse=" ")
     
@@ -182,8 +179,6 @@ codebook.variables.names <- names(data.cast)
 
 # Apply our features.descriptions to names(data.cast) to get descriptions
 codebook.variables.descriptions <- unlist(lapply(names(data.cast),features.description))
-
-# Get variables widths
 
 # Create ranges vector
 activity.range <- sprintf("string in {%s}",paste(activity.label$V2, collapse=", "))
@@ -204,7 +199,8 @@ if(!require(knitr)){install.packages("knitr")}
 kable(codebook.df)
 
 sink("CODEBOOK.md")
-cat("==================================================================
+cat("```
+==================================================================
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
 ==================================================================
@@ -214,13 +210,12 @@ DITEN - Università degli Studi di Genova.
 Via Opera Pia 11A, I-16145, Genoa, Italy.
 activityrecognition@smartlab.ws
 www.smartlab.ws
-==================================================================\n\n")
+==================================================================
+```\n\n")
 cat("## Data collection \n\n")  
 cat("The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually.\n
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.\n
 The data were aggregated to give the means of the means and standard deviations of each variable for each subject and activity.\n\n")
 cat("## Codebook (table format)")
 kable(codebook.df)
-cat("\n\n")
-cat("## Codebook (plain format) \n\n")
 sink()
